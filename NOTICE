@@ -1,0 +1,48 @@
+Polkit for Ruby
+Copyright 2026 General Intelligence Systems
+
+--------------------------------------------------------------------------------
+polkit (the Rust crate)
+--------------------------------------------------------------------------------
+
+The native extension under ext/polkit links the polkit crate, Val Packett's
+gir-generated binding over libpolkit-gobject-1. This gem is bindings for it and
+nothing else: every module it defines speaks to a type of that crate.
+
+  https://codeberg.org/valpackett/polkit-rs
+  Copyright Val Packett
+  Licensed under 0BSD OR Unlicense, at the recipient's option
+
+Both are permissive and neither carries a NOTICE requirement, so there is
+nothing to propagate under section 4(d) of the Apache License this work is
+distributed under.
+
+--------------------------------------------------------------------------------
+polkit (the C library)
+--------------------------------------------------------------------------------
+
+The crate above links libpolkit-gobject-1, part of polkit, the freedesktop.org
+authorization framework. It is found by pkg-config at build time and is not
+vendored here.
+
+  https://github.com/polkit-org/polkit
+  Copyright Red Hat, Inc. and contributors
+  Licensed under the GNU Lesser General Public License, version 2.0 or later
+
+LGPL-2.0-or-later is a weak copyleft: it governs libpolkit-gobject-1 itself and
+reaches this work only as a dynamically linked library, which section 6 of that
+licence permits. Nothing in this gem is derived from polkit's source. A
+distributor shipping a precompiled gem that links it satisfies section 6 in the
+ordinary way, by leaving the library replaceable rather than statically
+absorbed.
+
+--------------------------------------------------------------------------------
+glib and gio (the Rust crates)
+--------------------------------------------------------------------------------
+
+The extension depends on the gtk-rs glib and gio crates directly, for GObject
+downcasting and for GIO's Cancellable.
+
+  https://github.com/gtk-rs/gtk-rs-core
+  Copyright The gtk-rs Project Developers
+  Licensed under the MIT License
